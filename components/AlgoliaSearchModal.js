@@ -109,7 +109,7 @@ export default function AlgoliaSearchModal({ cRef }) {
 
                 <div className='flex justify-between items-center'>
                     <div className='text-2xl text-blue-600 font-bold'>搜索</div>
-                    <div><i class="text-gray-600 fa-solid fa-xmark p-1 cursor-pointer hover:text-blue-600" onClick={closeModal} ></i></div>
+                    <div><i className="text-gray-600 fa-solid fa-xmark p-1 cursor-pointer hover:text-blue-600" onClick={closeModal} ></i></div>
                 </div>
 
                 <input type="text" placeholder="在这里输入搜索关键词..." onChange={(e) => handleInputChange(e)}
@@ -132,7 +132,7 @@ export default function AlgoliaSearchModal({ cRef }) {
 
                 <Pagination totalPage={totalPage} page={page} switchPage={switchPage}/>
                 <div>{totalHit > 0 && <div>共搜索到 {totalHit} 条结果，用时 {useTime} 毫秒</div> }</div>
-                <div className='text-gray-600 mt-2'><span><i class="fa-brands fa-algolia"></i> Algolia 提供搜索服务</span> </div>
+                <div className='text-gray-600 mt-2'><span><i className="fa-brands fa-algolia"></i> Algolia 提供搜索服务</span> </div>
             </div>
 
             {/* 遮罩 */}
@@ -148,7 +148,7 @@ export default function AlgoliaSearchModal({ cRef }) {
 function TagGroups(props) {
   const { tagOptions } = useGlobal()
   //  获取tagOptions数组前十个
-  const firstTenTags = tagOptions.slice(0, 10)
+  const firstTenTags = tagOptions?.slice(0, 10)
 
   return <div id='tags-group' className='dark:border-gray-700 space-y-2'>
             {
@@ -156,8 +156,8 @@ function TagGroups(props) {
                   return <Link passHref
                         key={index}
                         href={`/tag/${encodeURIComponent(tag.name)}`}
-                        className={'cursor-pointer inline-block  whitespace-nowrap'}>
-                        <div className={' flex items-center hover:bg-blue-600 dark:hover:bg-yellow-600 hover:scale-110 hover:text-white rounded-lg px-2 py-0.5 duration-150 transition-all'}>
+                        className={'cursor-pointer inline-block whitespace-nowrap'}>
+                        <div className={' flex items-center text-black dark:text-gray-300 hover:bg-blue-600 dark:hover:bg-yellow-600 hover:scale-110 hover:text-white rounded-lg px-2 py-0.5 duration-150 transition-all'}>
                             <div className='text-lg'>{tag.name} </div>{tag.count ? <sup className='relative ml-1'>{tag.count}</sup> : <></>}
                         </div>
 
